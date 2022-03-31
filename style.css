@@ -48,6 +48,19 @@ body {
     background-color: rgb(198, 204, 211);
 }
 
+#toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+#toolbar img {
+    height: 40px;
+    width: auto;
+}
+
 #body-area-right {
     display: flex;
     flex-direction: column;
@@ -104,6 +117,20 @@ body {
 #options button {
     padding: 5px 10px;
     border-radius: 5px;
+    background-color: rgb(59, 59, 255);
+    color: white;
+}
+
+#options button:active {
+    transition-duration: .05s;
+    background-color: rgba(59, 59, 255, 0.877);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#options button:disabled {
+    border-color: white;
+    background-color: rgb(72, 72, 87);
+
 }
 
 #dimension-options {

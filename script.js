@@ -1,6 +1,9 @@
 // FIELD DATA
+const penButton = document.getElementById('pen-color');
+const fillButton = document.getElementById('bg-color');
+const eraserButton = document.getElementById('eraser');
+
 const grid = document.getElementById('grid');
-let gridDimension = 16;
 
 const clearCurrentButton = document.getElementById('clear-button');
 const toggleGrid = document.getElementById('toggle-grid-button')
@@ -8,6 +11,11 @@ const validDimension = /^[\d]+$/;
 const dimensionInput = document.getElementById('grid-dimension');
 const setButton = document.getElementById('set-grid-button');
 const resetAllButton = document.getElementById('reset-all-button');
+
+let gridDimension = 16;
+let penColor = "black";
+let bgColor = "white";
+let eraser = "lightgray"
 
 
 // INITIAL STATES
@@ -20,6 +28,8 @@ function createGrid(dimension) {
     currentGridBoxes = grid.querySelectorAll('div');
     currentGridBoxes.forEach( (div) => div.remove() );
     dimensionInput.value = '';
+    dimensionInput.style.borderColor = "rgb(88, 88, 92)";
+    setButton.setAttribute('disabled', 'true');
 
     for (let i = 0; i < dimension; i++) {
         for (let i = 0; i < dimension; i++) {
@@ -28,7 +38,7 @@ function createGrid(dimension) {
             newDiv.classList.add('grid-box');
             newDiv.style.width = `${100/dimension}%`;
             newDiv.style.height = `${100/dimension}%`;
-            newDiv.style.borderColor = "black";
+            newDiv.style.borderColor = "transparent";
         }
     }
 };
