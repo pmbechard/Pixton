@@ -30,7 +30,7 @@ body {
 
 #logo:hover {
     transform: rotate(360deg);
-    transition-duration: 2s;
+    transition: all 2s ease;
 }
 
 #subtitle {
@@ -86,13 +86,13 @@ body {
 }
 
 #toolbar img:hover, #toolbar input:hover, #options button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: rgb(227, 230, 233);
     transition-duration: 0.3s;
 }
 
 #toolbar img:active, #toolbar input:active, #options button:active {
-    transform: scale(1.15);
+    transform: scale(1.1);
     background-color: rgb(179, 179, 179);
     transition-duration: 0.02s;
 }
@@ -189,4 +189,3 @@ body {
 #grid-dimension:focus-visible {
     outline: none !important;
 }
-

@@ -46,6 +46,8 @@ let tempFillColor = "#999999"
 let eraser = "transparent"
 
 // Grid Set-Up
+let gridOn = true;
+toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 createGrid(gridDimension);
 
 
@@ -104,21 +106,51 @@ allGridBoxes.forEach( (div) => {
 
 
 /************************* TOOLBAR EVENTS *************************/
-penColorChooser.addEventListener('change', (e) => tempPenColor = e.target.value );
-fillColorChooser.addEventListener('change', (e) => tempFillColor = e.target.value );
+penColorChooser.addEventListener('change', (e) => {
+    tempPenColor = e.target.value;
+    penButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+});
 
-penButton.addEventListener('click', (e) => penColor = tempPenColor);
-eraserButton.addEventListener('click', (e) =>  penColor = "transparent");
+fillColorChooser.addEventListener('change', (e) => {
+    tempFillColor = e.target.value;
+    fillButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+});
+
+penButton.addEventListener('click', (e) => {
+    penColor = tempPenColor;
+    if (penButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+        penButton.style.backgroundColor = 'rgb(215, 218, 221)';
+    }
+});
+
+eraserButton.addEventListener('click', (e) =>  {
+    if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+        penColor = tempPenColor;
+        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+    } else {
+        eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+        penColor = "transparent";
+    };
+});
+
 fillButton.addEventListener('click', (e) => {
     fillColor = tempFillColor;
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => div.style.backgroundColor = fillColor );
+    fillButton.style.backgroundColor = 'rgb(215, 218, 221)';
 });
 
 
 
 /************************* OPTIONS MENU EVENTS *************************/
 toggleGrid.addEventListener('click', (e) => {
+    if (gridOn) {
+        gridOn = false;
+        toggleGrid.style.backgroundColor = 'rgb(215, 218, 221)';
+    } else {
+        gridOn = true;
+        toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+    }
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => {
         if (div.style.borderColor === "black") {
