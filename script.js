@@ -1,3 +1,20 @@
+/*
+PIXEL ART CREATOR
+by Peyton Bechard
+
+Started: 31 Mar 2022
+Last Updated: 31 Mar 2022
+*/
+
+
+/*
+TO-DO:
+    - fix hover animation bug
+    - fix click/drag bug (stops working after multiple pen/bg changes)
+    - add save functionality
+*/
+
+
 /************************* FIELD DATA *************************/
 // Toolbar Items
 const penButton = document.getElementById('pen-color');
@@ -52,6 +69,37 @@ function createGrid(dimension) {
         }
     }
 };
+
+
+
+/************************* GRID EVENTS *************************/
+let mouseDown = false;
+let allGridBoxes = grid.querySelectorAll('div');
+let tempColor = "";
+
+// allGridBoxes.forEach( (div) => div.addEventListener ('mouseenter', (e) => {
+//     console.log('enter box');
+//     tempColor = e.target.style.backgroundColor;
+//     e.target.style.backgroundColor = '#444444';
+// }));
+
+// allGridBoxes.forEach( (div) => div.addEventListener ('mouseleave', (e) => {
+//     console.log('leave box');
+//     e.target.style.backgroundColor = tempColor;
+// }));
+
+grid.addEventListener('mousedown', (e) => mouseDown = true);
+grid.addEventListener('mouseup', () => mouseDown = false);
+grid.addEventListener('click', (e) => e.target.style.backgroundColor = penColor);
+allGridBoxes.forEach( (div) => {
+    div.addEventListener('mouseenter', (e) => {
+        if (mouseDown === true) {
+            e.target.style.backgroundColor = penColor;
+        }
+    })
+});
+
+
 
 
 
