@@ -1,7 +1,7 @@
 /* UNIVERSAL */
 * {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 
 #body-area-left {
     width: 20vw;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: rgb(198, 204, 211);
 }
@@ -59,6 +59,38 @@ body {
 #toolbar img {
     height: 40px;
     width: auto;
+    border: 1px solid black;
+    border-radius: 3px;;
+    padding: 5px;
+    background-color: rgb(215, 218, 221);
+}
+
+#toolbar input {
+    height: 50px;
+    width: 60px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: rgb(215, 218, 221);
+    transition: ease-in-out;
+}
+
+#toolbar img:hover, #toolbar input:hover {
+    transform: scale(1.1);
+    background-color: rgb(227, 230, 233);
+    transition-duration: 0.3s;
+}
+
+#toolbar img:active, #toolbar input:active {
+    transform: scale(1.15);
+    background-color: rgb(179, 179, 179);
+    transition-duration: 0.02s;
+}
+
+#fill, #pen {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 10%;
 }
 
 #body-area-right {
@@ -75,7 +107,7 @@ body {
     margin-bottom: 1%;
     height: 80%;
     flex: 2 1 auto;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 3%;
     background-color: rgb(198, 204, 211);
@@ -92,7 +124,7 @@ body {
 }
 
 .grid-box {
-    background-color: lightgray;
+    background-color: white;
     border: 0.1px solid black;
     box-sizing: border-box;
     transition-duration: 0.2s;
@@ -107,7 +139,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 3% 0;
     background-color: rgb(198, 204, 211);
@@ -115,10 +147,12 @@ body {
 }
 
 #options button {
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: rgb(59, 59, 255);
-    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: rgb(215, 218, 221);
+    transition: ease-in-out;
+    height: 40px;
+    width: 80px;
 }
 
 #options button:active {

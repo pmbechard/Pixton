@@ -15,12 +15,11 @@ const resetAllButton = document.getElementById('reset-all-button');
 let gridDimension = 16;
 let penColor = "black";
 let bgColor = "white";
-let eraser = "lightgray"
+let eraser = "white"
 
 
 // INITIAL STATES
 createGrid(gridDimension);
-setButton.setAttribute('disabled', 'true');
 
 
 // GRID GENERATOR
@@ -38,14 +37,17 @@ function createGrid(dimension) {
             newDiv.classList.add('grid-box');
             newDiv.style.width = `${100/dimension}%`;
             newDiv.style.height = `${100/dimension}%`;
-            newDiv.style.borderColor = "transparent";
+            newDiv.style.borderColor = "black";
         }
     }
 };
 
 
-// OPTIONS MENU EVENTS
+// TOOLBAR MENU EVENTS
 
+
+
+// OPTIONS MENU EVENTS
 toggleGrid.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => {
@@ -59,7 +61,7 @@ toggleGrid.addEventListener('click', (e) => {
 
 clearCurrentButton.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
-    allGridBoxes.forEach( (div) => { div.style.color = "lightgray" })
+    allGridBoxes.forEach( (div) => { div.style.color = "white" })
 });
 
 dimensionInput.addEventListener("keyup", (e) => {
