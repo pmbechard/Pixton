@@ -24,12 +24,12 @@ const dimensionInput = document.getElementById('grid-dimension');
 dimensionInput.addEventListener("keyup", (e) => {
     let input = dimensionInput.value;
     if (!input) {
-        dimensionInput.style.borderColor = "blue";
+        dimensionInput.style.borderColor = "rgb(88, 88, 92)";
     } else if (input.match(validDimension)) {
         console.log('match');
-        dimensionInput.style.borderColor = "green";
+        dimensionInput.style.borderColor = "rgb(0, 93, 23)";
     } else {
         console.log('no match');
-        dimensionInput.style.borderColor = "red";
+        dimensionInput.style.borderColor = "rgb(126, 3, 3)";
     }
 })
