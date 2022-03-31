@@ -74,13 +74,13 @@ body {
     transition: ease-in-out;
 }
 
-#toolbar img:hover, #toolbar input:hover {
+#toolbar img:hover, #toolbar input:hover, #options button:hover {
     transform: scale(1.1);
     background-color: rgb(227, 230, 233);
     transition-duration: 0.3s;
 }
 
-#toolbar img:active, #toolbar input:active {
+#toolbar img:active, #toolbar input:active, #options button:active {
     transform: scale(1.15);
     background-color: rgb(179, 179, 179);
     transition-duration: 0.02s;
@@ -118,9 +118,8 @@ body {
     flex-wrap: wrap;
     width: 30em;
     height: 30em;
-    border: 4px solid black;
-    border-radius: 8px;
-    box-shadow: 1px 1px 3px black;
+    border: 2px solid black;
+    box-shadow: 1px 1px 2px black;
 }
 
 .grid-box {
@@ -155,16 +154,10 @@ body {
     width: 80px;
 }
 
-#options button:active {
-    transition-duration: .05s;
-    background-color: rgba(59, 59, 255, 0.877);
-    color: rgba(255, 255, 255, 0.5);
-}
-
 #options button:disabled {
-    border-color: white;
-    background-color: rgb(72, 72, 87);
-
+    background-color: rgb(110, 110, 143);
+    color: rgb(187, 187, 207);
+    transform: none;
 }
 
 #dimension-options {
@@ -172,14 +165,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2%;
 }
 
 #grid-dimension {
     border: 3px solid rgb(88, 88, 92);
     border-radius: 5px;
-    margin-top: 3%;
     width: 75px;
-    height: 20px;
+    height: 30px;
 }
 
 #grid-dimension:focus-visible {

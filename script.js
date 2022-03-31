@@ -1,10 +1,15 @@
-// FIELD DATA
+/************************* FIELD DATA *************************/
+// Toolbar Items
 const penButton = document.getElementById('pen-color');
-const fillButton = document.getElementById('bg-color');
+const penColorChooser = document.getElementById('pen-color-chooser');
+const fillButton = document.getElementById('fill-color');
+const fillColorChooser = document.getElementById('fill-color-chooser');
 const eraserButton = document.getElementById('eraser');
 
+// Grid
 const grid = document.getElementById('grid');
 
+// Options Menu Items
 const clearCurrentButton = document.getElementById('clear-button');
 const toggleGrid = document.getElementById('toggle-grid-button')
 const validDimension = /^[\d]+$/;
@@ -12,17 +17,23 @@ const dimensionInput = document.getElementById('grid-dimension');
 const setButton = document.getElementById('set-grid-button');
 const resetAllButton = document.getElementById('reset-all-button');
 
+
+
+/************************* INITIAL STATES *************************/
+// Color States
 let gridDimension = 16;
-let penColor = "black";
-let bgColor = "white";
-let eraser = "white"
+let penColor = "#000000";
+let tempPenColor = "#000000"
+let fillColor = "#999999";
+let tempFillColor = "#999999"
+let eraser = "transparent"
 
-
-// INITIAL STATES
+// Grid Set-Up
 createGrid(gridDimension);
 
 
-// GRID GENERATOR
+
+/************************* GRID GENERATOR *************************/
 function createGrid(dimension) {
     currentGridBoxes = grid.querySelectorAll('div');
     currentGridBoxes.forEach( (div) => div.remove() );
@@ -43,11 +54,22 @@ function createGrid(dimension) {
 };
 
 
-// TOOLBAR MENU EVENTS
+
+/************************* TOOLBAR EVENTS *************************/
+penColorChooser.addEventListener('change', (e) => tempPenColor = e.target.value );
+fillColorChooser.addEventListener('change', (e) => tempFillColor = e.target.value );
+
+penButton.addEventListener('click', (e) => penColor = tempPenColor);
+eraserButton.addEventListener('click', (e) =>  penColor = "transparent");
+fillButton.addEventListener('click', (e) => {
+    fillColor = tempFillColor;
+    let allGridBoxes = grid.querySelectorAll('div');
+    allGridBoxes.forEach( (div) => div.style.backgroundColor = fillColor );
+});
 
 
 
-// OPTIONS MENU EVENTS
+/************************* OPTIONS MENU EVENTS *************************/
 toggleGrid.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => {
@@ -61,7 +83,7 @@ toggleGrid.addEventListener('click', (e) => {
 
 clearCurrentButton.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
-    allGridBoxes.forEach( (div) => { div.style.color = "white" })
+    allGridBoxes.forEach( (div) => { div.style.backgroundColor = "#ffffff" })
 });
 
 dimensionInput.addEventListener("keyup", (e) => {
