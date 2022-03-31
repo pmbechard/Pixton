@@ -56,26 +56,27 @@ body {
     justify-content: center;
     align-items: center;
     height: 80%;
-    flex: 5 1 auto;
+    flex: 2 1 auto;
 }
 
 #grid {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
-    height: 30vw;
+    width: 30em;
+    height: 30em;
+    margin: 5%;
 }
 
 .grid-box {
     background-color: lightgray;
     border: 1px solid black;
     box-sizing: border-box;
-    flex: 0 0 6.25%;
+    flex: 1 1 6.25%;
+    padding-bottom: 6.25%;
 }
 
 #options {
     flex: 1 5 auto;
-
 }
 
 
