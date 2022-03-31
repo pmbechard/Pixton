@@ -28,6 +28,17 @@ body {
     height: 10vh;
 }
 
+#logo:hover {
+    transform: rotate(360deg);
+    transition-duration: 2s;
+}
+
+#subtitle {
+    margin: 0 1%;
+    font-size: 0.1em;
+    align-self: flex-end;
+}
+
 
 /* BODY */
 
@@ -178,14 +189,4 @@ body {
 #grid-dimension:focus-visible {
     outline: none !important;
 }
-
-
-/* FOOTER */
- #footer-area {
-     height: 5vh;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     margin-right: 5%;
- }
 
