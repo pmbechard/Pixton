@@ -39,7 +39,6 @@ function createGrid(dimension) {
 toggleGrid.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => {
-        console.log(div.style.borderColor);
         if (div.style.borderColor === "black") {
             div.style.borderColor = "transparent";
         } else {
@@ -58,11 +57,11 @@ dimensionInput.addEventListener("keyup", (e) => {
     if (!input) {
         dimensionInput.style.borderColor = "rgb(88, 88, 92)";
         setButton.setAttribute('disabled', 'true');
-    } else if (input.match(validDimension)) {
-        dimensionInput.style.borderColor = "rgb(0, 93, 23)";
+    } else if (input.match(validDimension) && 1 < parseInt(input) && parseInt(input) < 101) {
+        dimensionInput.style.borderColor = "rgb(0, 136, 34)";
         setButton.removeAttribute('disabled');
     } else {
-        dimensionInput.style.borderColor = "rgb(126, 3, 3)";
+        dimensionInput.style.borderColor = "rgb(168, 0, 0)";
         setButton.setAttribute('disabled', 'true');
     }
 });

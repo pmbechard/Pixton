@@ -46,7 +46,6 @@ body {
     border: 3px solid black;
     border-radius: 5px;
     background-color: rgb(198, 204, 211);
-    color: whitesmoke
 }
 
 #body-area-right {
@@ -81,7 +80,7 @@ body {
 
 .grid-box {
     background-color: lightgray;
-    border: 1px solid black;
+    border: 0.1px solid black;
     box-sizing: border-box;
     transition-duration: 0.2s;
 }
@@ -135,3 +134,4 @@ body {
      align-items: center;
      margin-right: 5%;
  }
+
