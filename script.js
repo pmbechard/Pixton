@@ -1,13 +1,26 @@
 // FIELD DATA
 const grid = document.getElementById('grid');
 let gridDimension = 16;
+
+const validDimension = /^[\d]+$/;
+const dimensionInput = document.getElementById('grid-dimension');
+const setButton = document.getElementById('set-grid-button');
+
+const clearCurrentButton = document.getElementById('clear-button');
+const resetAllButton = document.getElementById('reset-all-button');
+
+
+
 createGrid(gridDimension);
+setButton.setAttribute('disabled', 'true');
 
 
-// GRID CREATION
+
+// GRID GENERATOR
 function createGrid(dimension) {
     currentGridBoxes = grid.querySelectorAll('div');
     currentGridBoxes.forEach( (div) => div.remove() );
+    dimensionInput.value = '';
 
     for (let i = 0; i < dimension; i++) {
         for (let i = 0; i < dimension; i++) {
@@ -21,11 +34,11 @@ function createGrid(dimension) {
 };
 
 
-// DIMENSION INPUT
-const validDimension = /^[\d]+$/;
-const dimensionInput = document.getElementById('grid-dimension');
-const setButton = document.getElementById('set-grid-button');
-setButton.setAttribute('disabled', 'true');
+// OPTIONS MENU EVENTS
+clearCurrentButton.addEventListener('click', (e) => {
+    let allGridBoxes = grid.querySelectorAll('div');
+    allGridBoxes.forEach( (div) => { div.style.color = "lightgray" })
+});
 
 dimensionInput.addEventListener("keyup", (e) => {
     let input = dimensionInput.value;
@@ -41,19 +54,10 @@ dimensionInput.addEventListener("keyup", (e) => {
     }
 });
 
-
-// OPTIONS MENU
-const clearCurrentButton = document.getElementById('clear-button');
-clearCurrentButton.addEventListener('click', (e) => {
-    let allGridBoxes = grid.querySelectorAll('div');
-    allGridBoxes.forEach( (div) => { div.style.color = "lightgray" })
-});
-
-
 setButton.addEventListener('click', () => {
     gridDimension = dimensionInput.value;
     intDimension = parseInt(gridDimension);
     createGrid(intDimension);
 });
 
-
+resetAllButton.addEventListener('click', (e) => createGrid(16) );
