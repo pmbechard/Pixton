@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    background-color: rgb(217, 220, 223);
 }
 
 
@@ -73,6 +74,10 @@ body {
     box-sizing: border-box;
     flex: 1 1 6.25%;
     padding-bottom: 6.25%;
+}
+
+.grid-box:hover {
+    background-color: rgba(104, 104, 104, 0.493);
 }
 
 #options {
