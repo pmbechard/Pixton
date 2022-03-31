@@ -2,18 +2,17 @@
 const grid = document.getElementById('grid');
 let gridDimension = 16;
 
+const clearCurrentButton = document.getElementById('clear-button');
+const toggleGrid = document.getElementById('toggle-grid-button')
 const validDimension = /^[\d]+$/;
 const dimensionInput = document.getElementById('grid-dimension');
 const setButton = document.getElementById('set-grid-button');
-
-const clearCurrentButton = document.getElementById('clear-button');
 const resetAllButton = document.getElementById('reset-all-button');
 
 
-
+// INITIAL STATES
 createGrid(gridDimension);
 setButton.setAttribute('disabled', 'true');
-
 
 
 // GRID GENERATOR
@@ -29,12 +28,26 @@ function createGrid(dimension) {
             newDiv.classList.add('grid-box');
             newDiv.style.width = `${100/dimension}%`;
             newDiv.style.height = `${100/dimension}%`;
+            newDiv.style.borderColor = "black";
         }
     }
 };
 
 
 // OPTIONS MENU EVENTS
+
+toggleGrid.addEventListener('click', (e) => {
+    let allGridBoxes = grid.querySelectorAll('div');
+    allGridBoxes.forEach( (div) => {
+        console.log(div.style.borderColor);
+        if (div.style.borderColor === "black") {
+            div.style.borderColor = "transparent";
+        } else {
+            div.style.borderColor = "black";
+        }
+    });
+});
+
 clearCurrentButton.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => { div.style.color = "lightgray" })
