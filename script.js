@@ -48,7 +48,12 @@ let eraser = "transparent"
 // Grid Set-Up
 let gridOn = true;
 toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+let mouseDown = false;
+let tempColor = "";
+
+// Init Function
 createGrid(gridDimension);
+resetGridEvents();
 
 
 
@@ -70,37 +75,28 @@ function createGrid(dimension) {
             newDiv.style.borderColor = "black";
         }
     }
+    resetGridEvents();
 };
 
 
 
 /************************* GRID EVENTS *************************/
-let mouseDown = false;
-let allGridBoxes = grid.querySelectorAll('div');
-let tempColor = "";
-
-// allGridBoxes.forEach( (div) => div.addEventListener ('mouseenter', (e) => {
-//     console.log('enter box');
-//     tempColor = e.target.style.backgroundColor;
-//     e.target.style.backgroundColor = '#444444';
-// }));
-
-// allGridBoxes.forEach( (div) => div.addEventListener ('mouseleave', (e) => {
-//     console.log('leave box');
-//     e.target.style.backgroundColor = tempColor;
-// }));
-
-grid.addEventListener('mousedown', (e) => mouseDown = true);
-grid.addEventListener('mouseup', () => mouseDown = false);
-grid.addEventListener('click', (e) => e.target.style.backgroundColor = penColor);
-allGridBoxes.forEach( (div) => {
-    div.addEventListener('mouseenter', (e) => {
-        if (mouseDown === true) {
-            e.target.style.backgroundColor = penColor;
-        }
-    })
-});
-
+function resetGridEvents() {
+    let allGridBoxes = grid.querySelectorAll('div');
+    grid.addEventListener('mousedown', (e) => {
+        mouseDown = true;
+        e.target.style.backgroundColor = penColor;
+    });
+    grid.addEventListener('mouseup', () => mouseDown = false);
+    grid.addEventListener('click', (e) => e.target.style.backgroundColor = penColor);
+    allGridBoxes.forEach( (div) => {
+        div.addEventListener('mouseenter', (e) => {
+            if (mouseDown === true) {
+                e.target.style.backgroundColor = penColor;
+            }
+        })
+    });
+}
 
 
 
@@ -138,6 +134,7 @@ fillButton.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => div.style.backgroundColor = fillColor );
     fillButton.style.backgroundColor = 'rgb(215, 218, 221)';
+    resetGridEvents();
 });
 
 
@@ -159,6 +156,7 @@ toggleGrid.addEventListener('click', (e) => {
             div.style.borderColor = "black";
         }
     });
+    resetGridEvents();
 });
 
 clearCurrentButton.addEventListener('click', (e) => {
