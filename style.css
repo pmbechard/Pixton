@@ -189,3 +189,9 @@ body {
 #grid-dimension:focus-visible {
     outline: none !important;
 }
+
+#current-grid {
+    text-align: center;
+    color: black;
+    margin-bottom: 5px;
+}

@@ -29,9 +29,11 @@ const grid = document.getElementById('grid');
 const clearCurrentButton = document.getElementById('clear-button');
 const toggleGrid = document.getElementById('toggle-grid-button')
 const validDimension = /^[\d]+$/;
+const gridLabel = document.getElementById('current-grid');
 const dimensionInput = document.getElementById('grid-dimension');
 const setButton = document.getElementById('set-grid-button');
 const resetAllButton = document.getElementById('reset-all-button');
+
 
 
 
@@ -49,6 +51,8 @@ let gridOn = true;
 toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 let mouseDown = false;
 let tempColor = "";
+let currentGridDimension = 16;
+let tempGridDimension = 16;
 
 // Init Function
 createGrid(gridDimension);
@@ -168,12 +172,16 @@ dimensionInput.addEventListener("keyup", (e) => {
     if (!input) {
         dimensionInput.style.borderColor = "rgb(88, 88, 92)";
         setButton.setAttribute('disabled', 'true');
-    } else if (input.match(validDimension) && 1 < parseInt(input) && parseInt(input) < 101) {
+        gridLabel.textContent = `${currentGridDimension}x${currentGridDimension}`;
+    } else if (input.match(validDimension) && 1 <= parseInt(input) && parseInt(input) < 101) {
         dimensionInput.style.borderColor = "rgb(0, 136, 34)";
         setButton.removeAttribute('disabled');
+        gridLabel.textContent = `${input}x${input}`;
+        tempGridDimension = input;
     } else {
         dimensionInput.style.borderColor = "rgb(168, 0, 0)";
         setButton.setAttribute('disabled', 'true');
+        gridLabel.textContent = `${currentGridDimension}x${currentGridDimension}`;
     }
 });
 
@@ -181,10 +189,14 @@ setButton.addEventListener('click', () => {
     gridDimension = dimensionInput.value;
     intDimension = parseInt(gridDimension);
     createGrid(intDimension);
+    currentGridDimension = tempGridDimension;
 });
 
 resetAllButton.addEventListener('click', (e) => {
     createGrid(16);
     gridOn = true;
     toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+    gridLabel.textContent = '16x16';
+    currentGridDimension = 16;
+    tempGridDimension = 16;
 });
