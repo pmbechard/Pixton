@@ -143,7 +143,10 @@ function changePenColor(color) {
 fillButton.addEventListener('click', (e) => {
     fillColor = tempFillColor;
     let allGridBoxes = grid.querySelectorAll('div');
-    allGridBoxes.forEach( (div) => div.style.backgroundColor = fillColor );
+    allGridBoxes.forEach( (div) => {
+        div.style.backgroundColor = fillColor;
+        div.style.setProperty('--color', penColor); // new
+    });
     fillButton.style.backgroundColor = 'rgb(215, 218, 221)';
     resetGridEvents();
 });

@@ -14,6 +14,12 @@ body {
 }
 
 
+/* new */
+:root {        
+    --color: rgba(104, 104, 104, 0.493);
+}
+
+
 /* HEADER */
 
 #header-area {
@@ -141,7 +147,8 @@ body {
 }
 
 .grid-box:hover {
-    background-color: rgba(104, 104, 104, 0.493);
+    /* background-color: rgba(104, 104, 104, 0.493); */
+    background-color: var(--color);
 }
 
 #options {
