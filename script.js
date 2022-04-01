@@ -116,6 +116,7 @@ fillColorChooser.addEventListener('change', (e) => {
 });
 
 penButton.addEventListener('click', (e) => {
+    eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
     penColor = tempPenColor;
     if (penButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
         penButton.style.backgroundColor = 'rgb(215, 218, 221)';
