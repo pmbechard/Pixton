@@ -24,6 +24,8 @@ const penColorChooser = document.getElementById('pen-color-chooser');
 const fillButton = document.getElementById('fill-color');
 const fillColorChooser = document.getElementById('fill-color-chooser');
 const eraserButton = document.getElementById('eraser');
+eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+
 
 // Grid
 const grid = document.getElementById('grid');
@@ -53,11 +55,10 @@ let eraser = 'transparent';
 let gridOn = true;
 toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 let mouseDown = false;
-let tempColor = '';
 let currentGridDimension = 16;
 let tempGridDimension = 16;
 
-// Init Function
+// Init Functions
 createGrid(gridDimension);
 resetGridEvents();
 
@@ -101,8 +102,8 @@ function resetGridEvents() {
                 e.target.style.backgroundColor = penColor;
             }
         })
-    });
-}
+    })
+};
 
 
 
@@ -118,23 +119,26 @@ fillColorChooser.addEventListener('change', (e) => {
     fillButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 });
 
-penButton.addEventListener('click', (e) => {
-    eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
-    penColor = tempPenColor;
+penButton.addEventListener('click', () => changePenColor(tempPenColor));
+
+function changePenColor(color) {
+    if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+    }
     if (penButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
         penButton.style.backgroundColor = 'rgb(215, 218, 221)';
     }
-});
+    penColor = color;
+};
 
-eraserButton.addEventListener('click', (e) =>  {
-    if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-        penColor = tempPenColor;
-        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
-    } else {
-        eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
-        penColor = 'transparent';
-    };
-});
+// eraserButton.addEventListener('click', (e) =>  {
+//     if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+//         eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+//     } else {
+//         eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+//         penColor = 'transparent';
+//     };
+// });
 
 fillButton.addEventListener('click', (e) => {
     fillColor = tempFillColor;
