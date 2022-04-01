@@ -10,7 +10,10 @@ Last Updated: 31 Mar 2022
 /*
 TO-DO:
     - fix hover animation bug
+    - fix eraser behavior that makes it look like eraser is pen color
+    - eraser/pen change causes old erased to change to pen color
     - add save functionality
+    - add right-click eraser feature
 */
 
 
@@ -40,17 +43,17 @@ const resetAllButton = document.getElementById('reset-all-button');
 /************************* INITIAL STATES *************************/
 // Color States
 let gridDimension = 16;
-let penColor = "#000000";
-let tempPenColor = "#000000"
-let fillColor = "#999999";
-let tempFillColor = "#999999"
-let eraser = "transparent"
+let penColor = '#000000';
+let tempPenColor = '#000000';
+let fillColor = '#999999';
+let tempFillColor = '#999999';
+let eraser = 'transparent';
 
 // Grid Set-Up
 let gridOn = true;
 toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 let mouseDown = false;
-let tempColor = "";
+let tempColor = '';
 let currentGridDimension = 16;
 let tempGridDimension = 16;
 
@@ -65,7 +68,7 @@ function createGrid(dimension) {
     currentGridBoxes = grid.querySelectorAll('div');
     currentGridBoxes.forEach( (div) => div.remove() );
     dimensionInput.value = '';
-    dimensionInput.style.borderColor = "rgb(88, 88, 92)";
+    dimensionInput.style.borderColor = 'rgb(88, 88, 92)';
     setButton.setAttribute('disabled', 'true');
 
     for (let i = 0; i < dimension; i++) {
@@ -75,7 +78,7 @@ function createGrid(dimension) {
             newDiv.classList.add('grid-box');
             newDiv.style.width = `${100/dimension}%`;
             newDiv.style.height = `${100/dimension}%`;
-            newDiv.style.borderColor = "black";
+            newDiv.style.borderColor = 'black';
         }
     }
     resetGridEvents();
@@ -129,7 +132,7 @@ eraserButton.addEventListener('click', (e) =>  {
         eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
     } else {
         eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
-        penColor = "transparent";
+        penColor = 'transparent';
     };
 });
 
@@ -154,10 +157,10 @@ toggleGrid.addEventListener('click', (e) => {
     }
     let allGridBoxes = grid.querySelectorAll('div');
     allGridBoxes.forEach( (div) => {
-        if (div.style.borderColor === "black") {
-            div.style.borderColor = "transparent";
+        if (div.style.borderColor === 'black') {
+            div.style.borderColor = 'transparent';
         } else {
-            div.style.borderColor = "black";
+            div.style.borderColor = 'black';
         }
     });
     resetGridEvents();
@@ -165,22 +168,22 @@ toggleGrid.addEventListener('click', (e) => {
 
 clearCurrentButton.addEventListener('click', (e) => {
     let allGridBoxes = grid.querySelectorAll('div');
-    allGridBoxes.forEach( (div) => { div.style.backgroundColor = "#ffffff" })
+    allGridBoxes.forEach( (div) => div.style.backgroundColor = '#ffffff' )
 });
 
-dimensionInput.addEventListener("keyup", (e) => {
+dimensionInput.addEventListener('keyup', (e) => {
     let input = dimensionInput.value;
     if (!input) {
-        dimensionInput.style.borderColor = "rgb(88, 88, 92)";
+        dimensionInput.style.borderColor = 'rgb(88, 88, 92)';
         setButton.setAttribute('disabled', 'true');
         gridLabel.textContent = `${currentGridDimension}x${currentGridDimension}`;
-    } else if (input.match(validDimension) && 1 <= parseInt(input) && parseInt(input) < 101) {
-        dimensionInput.style.borderColor = "rgb(0, 136, 34)";
+    } else if (input.match(validDimension) && 1 <= parseInt(input) && parseInt(input) <= 48) {
+        dimensionInput.style.borderColor = 'rgb(0, 136, 34)';
         setButton.removeAttribute('disabled');
         gridLabel.textContent = `${input}x${input}`;
         tempGridDimension = input;
     } else {
-        dimensionInput.style.borderColor = "rgb(168, 0, 0)";
+        dimensionInput.style.borderColor = 'rgb(168, 0, 0)';
         setButton.setAttribute('disabled', 'true');
         gridLabel.textContent = `${currentGridDimension}x${currentGridDimension}`;
     }
