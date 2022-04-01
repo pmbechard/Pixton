@@ -10,7 +10,6 @@ Last Updated: 31 Mar 2022
 /*
 TO-DO:
     - fix hover animation bug
-    - fix click/drag bug (stops working after multiple pen/bg changes)
     - add save functionality
 */
 
@@ -184,4 +183,8 @@ setButton.addEventListener('click', () => {
     createGrid(intDimension);
 });
 
-resetAllButton.addEventListener('click', (e) => createGrid(16) );
+resetAllButton.addEventListener('click', (e) => {
+    createGrid(16);
+    gridOn = true;
+    toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+});
