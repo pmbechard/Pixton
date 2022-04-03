@@ -80,6 +80,8 @@ function createGrid(dimension) {
             newDiv.style.borderColor = 'black';
         }
     }
+    gridOn = true;
+    toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
     resetGridEvents();
 };
 
