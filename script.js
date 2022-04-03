@@ -3,15 +3,13 @@ PIXEL ART CREATOR
 by Peyton Bechard
 
 Started: 31 Mar 2022
-Last Updated: 31 Mar 2022
+Last Updated: 3 Apr 2022
 */
 
 
 /*
 TO-DO:
     - fix hover animation bug
-    - fix eraser behavior that makes it look like eraser is pen color
-    - eraser/pen change causes old erased to change to pen color
     - add save functionality
     - add right-click eraser feature
 */
@@ -131,14 +129,18 @@ function changePenColor(color) {
     penColor = color;
 };
 
-// eraserButton.addEventListener('click', (e) =>  {
-//     if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-//         eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
-//     } else {
-//         eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
-//         penColor = 'transparent';
-//     };
-// });
+eraserButton.addEventListener('click', (e) =>  {
+    if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+        penColor = tempPenColor;
+        if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
+            eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+        }
+    } else {
+        eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
+        penColor = 'rgb(198, 204, 211)';
+    };
+});
 
 fillButton.addEventListener('click', (e) => {
     fillColor = tempFillColor;
