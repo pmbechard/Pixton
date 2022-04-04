@@ -63,7 +63,7 @@ createGrid(gridDimension);
 /************************* GRID GENERATOR *************************/
 function createGrid(dimension) {
     currentGridBoxes = grid.querySelectorAll('div');
-    // currentGridBoxes.forEach( (div) => div.remove() );
+    currentGridBoxes.forEach( (div) => div.remove() );
     dimensionInput.value = '';
     dimensionInput.style.borderColor = 'rgb(88, 88, 92)';
     setButton.setAttribute('disabled', 'true');
@@ -112,11 +112,6 @@ function createGrid(dimension) {
     }
     gridOn = true;
     toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
-    currentGridBoxes.forEach( (div) => {
-        div.addEventListener('mouseover', (e) => {
-            console.log(div.style.backgroundColor);
-        });
-    });
 };
 
 
