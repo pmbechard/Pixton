@@ -9,6 +9,7 @@ Last Updated: 4 Apr 2022
 
 /*
 TO-DO:
+    - add undo button
     - add save functionality
 */
 
@@ -35,6 +36,7 @@ const gridLabel = document.getElementById('current-grid');
 const dimensionInput = document.getElementById('grid-dimension');
 const setButton = document.getElementById('set-grid-button');
 const resetAllButton = document.getElementById('reset-all-button');
+const saveButton = document.getElementById('save-button');
 
 
 
@@ -227,3 +229,5 @@ resetAllButton.addEventListener('click', (e) => {
     currentGridDimension = 16;
     tempGridDimension = 16;
 });
+
+saveButton.addEventListener('click', () => alert("Feature currently unavailable. Please check again soon!") );

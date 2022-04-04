@@ -16,12 +16,20 @@ body {
 
 /* HEADER */
 
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 #header-area {
     display: flex;
     align-items: center;
     padding: 2vh;
     height: 8vh;
     color: black;
+    width: 50vw;
 }
 
 #logo {
@@ -37,6 +45,15 @@ body {
     margin: 0 1%;
     font-size: 0.1em;
     align-self: flex-end;
+}
+
+#github {
+    padding: 0 50px;
+}
+
+#github:hover {
+    transform: rotate(359deg);
+    transition: all 2s ease;
 }
 
 
