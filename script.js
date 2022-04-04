@@ -202,7 +202,7 @@ dimensionInput.addEventListener('keyup', (e) => {
         dimensionInput.style.borderColor = 'rgb(88, 88, 92)';
         setButton.setAttribute('disabled', 'true');
         gridLabel.textContent = `${currentGridDimension}x${currentGridDimension}`;
-    } else if (input.match(validDimension) && 1 <= parseInt(input) && parseInt(input) <= 48) {
+    } else if (input.match(validDimension) && 1 <= parseInt(input) && parseInt(input) <= 64) {
         dimensionInput.style.borderColor = 'rgb(0, 136, 34)';
         setButton.removeAttribute('disabled');
         gridLabel.textContent = `${input}x${input}`;
