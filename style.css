@@ -14,12 +14,6 @@ body {
 }
 
 
-/* new */
-:root {        
-    --color: rgba(104, 104, 104, 0.493);
-}
-
-
 /* HEADER */
 
 #header-area {
@@ -146,10 +140,9 @@ body {
     transition-duration: 0.2s;
 }
 
-.grid-box:hover {
-    /* background-color: rgba(104, 104, 104, 0.493); */
-    background-color: var(--color);
-}
+/* .grid-box:hover {
+    background-color: rgba(104, 104, 104, 0.493);
+} */
 
 #options {
     flex: 1 5 auto;
