@@ -10,7 +10,6 @@ Last Updated: 4 Apr 2022
 /*
 TO-DO:
     - add save functionality
-    - add right-click eraser feature
 */
 
 
@@ -55,6 +54,7 @@ toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 let mouseDown = false;
 let currentGridDimension = 16;
 let tempGridDimension = 16;
+let rightClicked = false;
 
 // Init Functions
 createGrid(gridDimension);
@@ -76,9 +76,8 @@ function createGrid(dimension) {
             newDiv.style.width = `${100/dimension}%`;
             newDiv.style.height = `${100/dimension}%`;
             newDiv.style.borderColor = 'black';
-            newDiv.setAttribute('oncontextmenu', 'return false;')
             newDiv.style.backgroundColor = 'white';
-
+            newDiv.setAttribute('oncontextmenu', 'return rightClick(this);')
 
             let tempColor = newDiv.style.backgroundColor;
             
@@ -102,17 +101,26 @@ function createGrid(dimension) {
 
             });
             newDiv.addEventListener('mouseleave', (e) => {
-                if (mouseDown === false) {
-                    newDiv.style.backgroundColor = tempColor;
-                } else {
-                    newDiv.style.backgroundColor = penColor;
+                if (rightClicked !== true) {
+                    if (mouseDown === false) {
+                        newDiv.style.backgroundColor = tempColor;
+                    } else {
+                        newDiv.style.backgroundColor = penColor;
+                    }
                 }
+                rightClicked = false;
             });
         }
     }
     gridOn = true;
     toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
 };
+
+function rightClick(div) {
+    div.style.backgroundColor = fillColor;
+    rightClicked = true;    
+    return false;
+}
 
 
 /************************* TOOLBAR EVENTS *************************/
