@@ -228,6 +228,7 @@ resetAllButton.addEventListener('click', (e) => {
     gridLabel.textContent = '16x16';
     currentGridDimension = 16;
     tempGridDimension = 16;
+    fillColor = 'white';
 });
 
 saveButton.addEventListener('click', () => alert("Feature currently unavailable. Please check again soon!") );
