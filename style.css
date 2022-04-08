@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background-color:whitesmoke;
+    background-color:rgb(235, 240, 249);
     overflow-y: scroll;
 }
 
@@ -63,7 +63,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 85vh;
     width: 100vw;
     gap: 0.5%;
     margin: 0.5% 0;
@@ -71,9 +70,10 @@ body {
 
 #body-area-left {
     width: 20vw;
+    height: 85vh;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: rgb(198, 204, 211);
+    background-color: rgb(134, 167, 205);
 }
 
 #toolbar {
@@ -138,7 +138,7 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     padding: 3%;
-    background-color: rgb(198, 204, 211);
+    background-color: rgb(134, 167, 205);
 }
 
 #grid {
@@ -165,8 +165,9 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     padding: 3% 0;
-    background-color: rgb(198, 204, 211);
+    background-color: rgb(134, 167, 205);
     color: white;
+    height: 5vh;
 }
 
 #options button {
