@@ -21,7 +21,7 @@ const penColorChooser = document.getElementById('pen-color-chooser');
 const fillButton = document.getElementById('fill-color');
 const fillColorChooser = document.getElementById('fill-color-chooser');
 const eraserButton = document.getElementById('eraser');
-eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+eraserButton.style.backgroundColor = 'rgb(116, 116, 116)';
 
 
 // Grid
@@ -140,20 +140,20 @@ penButton.addEventListener('click', () => changePenColor(tempPenColor));
 
 function changePenColor(color) {
     if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+        eraserButton.style.backgroundColor = 'rgb(116, 116, 116)';
     }
     if (penButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-        penButton.style.backgroundColor = 'rgb(215, 218, 221)';
+        penButton.style.backgroundColor = 'rgb(116, 116, 116)';
     }
     penColor = color;
 };
 
 eraserButton.addEventListener('click', (e) =>  {
     if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-        eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+        eraserButton.style.backgroundColor = 'rgb(116, 116, 116)';
         penColor = tempPenColor;
         if (eraserButton.style.backgroundColor == 'rgba(221, 221, 125, 0.8)') {
-            eraserButton.style.backgroundColor = 'rgb(215, 218, 221)';
+            eraserButton.style.backgroundColor = 'rgb(116, 116, 116)';
         }
     } else {
         eraserButton.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';
@@ -167,7 +167,7 @@ fillButton.addEventListener('click', (e) => {
     allGridBoxes.forEach( (div) => {
         div.style.backgroundColor = fillColor;
     });
-    fillButton.style.backgroundColor = 'rgb(215, 218, 221)';
+    fillButton.style.backgroundColor = 'rgb(116, 116, 116)';
 });
 
 
@@ -176,7 +176,7 @@ fillButton.addEventListener('click', (e) => {
 toggleGrid.addEventListener('click', (e) => {
     if (gridOn) {
         gridOn = false;
-        toggleGrid.style.backgroundColor = 'rgb(215, 218, 221)';
+        toggleGrid.style.backgroundColor = 'rgb(116, 116, 116)';
     } else {
         gridOn = true;
         toggleGrid.style.backgroundColor = 'rgba(221, 221, 125, 0.8)';

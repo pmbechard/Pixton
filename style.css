@@ -2,6 +2,7 @@
 * {
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
+    color: white;
 }
 
 body {
@@ -9,10 +10,9 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background-color:rgb(235, 240, 249);
+    background-color:rgb(34, 35, 35);
     overflow-y: scroll;
 }
-
 
 /* HEADER */
 
@@ -48,6 +48,7 @@ body {
 }
 
 #github {
+    height: 5vh;
     padding: 0 50px;
 }
 
@@ -68,12 +69,17 @@ body {
     margin: 0.5% 0;
 }
 
+#body-area-left,
+#grid-area,
+#options {
+    background-color: rgb(85, 87, 89, .2);
+    border: 1px solid black;
+}
+
 #body-area-left {
     width: 20vw;
     height: 85vh;
-    border: 1px solid black;
     border-radius: 5px;
-    background-color: rgb(134, 167, 205);
 }
 
 #toolbar {
@@ -84,13 +90,20 @@ body {
     height: 100%;
 }
 
+#toolbar img,
+#toolbar input, 
+#options button {
+    color: black;
+    font-weight: bold;
+    background-color: rgb(116, 116, 116);
+}
+
 #toolbar img {
     height: 40px;
     width: auto;
     border: 1px solid black;
     border-radius: 3px;;
     padding: 5px;
-    background-color: rgb(215, 218, 221);
 }
 
 #toolbar input {
@@ -98,13 +111,12 @@ body {
     width: 60px;
     border: 1px solid black;
     border-radius: 3px;
-    background-color: rgb(215, 218, 221);
     transition: ease-in-out;
 }
 
 #toolbar img:hover, #toolbar input:hover, #options button:hover {
     transform: scale(1.05);
-    background-color: rgb(227, 230, 233);
+    background-color: rgb(147, 148, 148);
     transition-duration: 0.3s;
 }
 
@@ -135,10 +147,8 @@ body {
     margin-bottom: 1%;
     height: 80%;
     flex: 2 1 auto;
-    border: 1px solid black;
     border-radius: 5px;
     padding: 3%;
-    background-color: rgb(134, 167, 205);
 }
 
 #grid {
@@ -162,10 +172,8 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black;
     border-radius: 5px;
     padding: 3% 0;
-    background-color: rgb(134, 167, 205);
     color: white;
     height: 5vh;
 }
@@ -173,7 +181,6 @@ body {
 #options button {
     border: 1px solid black;
     border-radius: 3px;
-    background-color: rgb(215, 218, 221);
     transition: ease-in-out;
     height: 40px;
     width: 80px;
@@ -206,6 +213,6 @@ body {
 
 #current-grid {
     text-align: center;
-    color: black;
+    color: #ccc;
     margin-bottom: 5px;
 }
