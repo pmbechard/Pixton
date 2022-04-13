@@ -98,6 +98,10 @@ body {
     background-color: rgb(116, 116, 116);
 }
 
+input {
+    color: black;
+}
+
 #toolbar img {
     height: 40px;
     width: auto;
